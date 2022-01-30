@@ -1,0 +1,15 @@
+const koa= require('koa');
+const cors= require('@koa/cors');
+const serve= require('koa-static')
+const router=require('./router.js');
+
+const app= new koa();
+
+app
+    .use(cors())
+    .use(serve('./images'))
+    .use(router.routes());
+
+app.listen(process.env.PORT||3000)
+
+console.log("ho");
