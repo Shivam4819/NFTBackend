@@ -2,7 +2,7 @@ const Router= require('@koa/router')
 const router= new Router()
 const tokens= require('./tokens.json')
 
-router.get('/:tokenId',async(ctx,next)=>{
+router.get('/:tokenId',async(ctx)=>{
     const token= tokens[ctx.params.tokenId]
     if(typeof token==='undefined'){
         ctx.status=400;
@@ -16,5 +16,7 @@ router.get('/:tokenId',async(ctx,next)=>{
         result: token
     }
 })
+
+
 
 module.exports=router;
